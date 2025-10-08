@@ -7,6 +7,29 @@
   z-index: 1;
 }
 
+.footer-description {
+  max-width: 600px;   
+  width: 90%;         
+  font-size: 16px;    
+  line-height: 1.5; 
+  color: white;
+  font-weight: 400;
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+  .footer-description {
+    font-size: 14px;
+  }
+}
+
+@media (max-width: 480px) {
+  .footer-description {
+    font-size: 13px;
+  }
+}
+
+
 .site-footer__wrap {
   position: relative;
   display: block;
@@ -99,7 +122,7 @@
   font-weight: 600;
   color: var(--crank-white);
   line-height: 55px;
-  margin-bottom: 38px;
+  margin-bottom: 20px;
 }
 
 .site-footer__newsletter-form {

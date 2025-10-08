@@ -259,8 +259,8 @@
     <section class="contact-three">
       <div class="container">
         <div class="contact-three__inner">
-          <h3 class="contact-three__title">Appiontment Now</h3>
-          <form class="contact-form-validated contact-three__form" action="assets/inc/sendemail.php" method="post"
+          <h3 class="contact-three__title">Get Quote</h3>
+          <form id="contactForm" class="contact-form-validated contact-three__form" action="/3m-forms.php" method="POST"
             novalidate="novalidate">
             <div class="row">
               <div class="col-xl-6 col-lg-6">
@@ -275,19 +275,22 @@
               </div>
               <div class="col-xl-6 col-lg-6">
                 <div class="contact-three__input-box">
-                  <input type="text" name="Phone" placeholder="Phone" required="" />
+                  <input type="text" name="phone" placeholder="Phone" required="" />
                 </div>
               </div>
               <div class="col-xl-6 col-lg-6">
                 <div class="contact-three__input-box">
                   <div class="select-box">
-                    <select class="selectmenu wide">
-                      <option selected="selected">Choose a Option</option>
-                      <option>Type Of Service 01</option>
-                      <option>Type Of Service 02</option>
-                      <option>Type Of Service 03</option>
-                      <option>Type Of Service 04</option>
-                      <option>Type Of Service 05</option>
+                    <select class="selectmenu wide" name="service" required>
+                      <option selected="selected">Choose a Service</option>
+                      <option>3M Paint Protection Film (PPF)</option>
+                      <option>3M Sun Control Film</option>
+                      <option>3M Graphene Coating</option>
+                      <option>3M Ceramic Coating</option>
+                      <option>3M Interior GermKleen Treatment</option>
+                      <option>3M Anti-Corrosion Treatment</option>
+                      <option>3M Car Wraps & Custom Styling</option>
+                      <option>3M Nomad Floor Mats</option>
                     </select>
                   </div>
                 </div>
@@ -298,7 +301,7 @@
                 </div>
                 <div class="contact-three__btn-box">
                   <button type="submit" class="thm-btn contact-three__btn">
-                    Appiontment Now
+                    Submit
                     <span class="icon-arrow-up-right"></span>
                   </button>
                 </div>
@@ -444,7 +447,7 @@
       <div class="site-footer__wrap">
         <div class="site-footer__shape-1"></div>
         <div class="site-footer__shape-2"></div>
-        <div class="site-footer__newsletter">
+           <div class="site-footer__newsletter">
           <div class="container">
             <div class="site-footer__newsletter-inner">
               <div class="site-footer__newsletter-img">
@@ -455,16 +458,17 @@
                       background-image: url(assets/images/shapes/site-footer-newsletter-shape-1.png);
                     "></div>
                 <h2 class="site-footer__newsletter-title">
-                  Partering With You To Transform <br />
-                  Your Vision Into Reality
+                  Book Your Service Today
                 </h2>
+                <p class="footer-description mb-3">
+                  Book an appointment online, call our studio, or visit us in Bangalore to experience premium 3M Car
+                  Care services.
+                </p>
                 <form class="site-footer__newsletter-form">
-                  <div class="site-footer__newsletter-input">
-                    <input type="email" placeholder="Your email..." />
-                  </div>
-                  <button type="submit" class="thm-btn">
-                    Subscribe <span class="icon-send"></span>
-                  </button>
+                  <a href="/contact.html">
+                    <button type="submit" class="thm-btn">
+                      Contact <span class="icon-send"></span>
+                    </button></a>
                 </form>
               </div>
             </div>
@@ -766,6 +770,61 @@
 
   <!-- template js -->
   <script src="assets/js/script.js"></script>
+
+   <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contactForm');
+
+      // Handle form submission
+      if (form) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          if (form.dataset.submitted) return; 
+          const submitButton = form.querySelector('button[type="submit"]');
+          submitButton.textContent = 'Submitting...';
+          submitButton.disabled = true;
+
+          const formData = new FormData(form);
+
+          fetch(form.action, {
+            method: 'POST',
+            body: formData
+          })
+            .then(response => response.text())
+            .then(text => {
+              console.log("Raw response:", text);
+              let data = {};
+              try {
+                data = JSON.parse(text);
+              } catch (e) {
+                alert("Invalid JSON response from server");
+                throw e;
+              }
+              console.log('Success:', data);
+              if (data.status === 'success') {
+                alert('Form submitted successfully!');
+                form.reset();
+              } else {
+                if (data.errors) {
+                  if (data.errors.phone) alert(data.errors.phone);
+                  if (data.errors.name) alert(data.errors.name);
+                } else {
+                  alert(data.message || 'An error occurred');
+                }
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('An error occurred during form submission.');
+            })
+            .finally(() => {
+              submitButton.textContent = 'Submit';
+              submitButton.disabled = false;
+            });
+        });
+      }
+    });
+  </script>
 </body>
 
 </html>
