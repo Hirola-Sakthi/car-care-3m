@@ -100,6 +100,26 @@
     line-height: 60px;
 }
 
+.contact-one__input-box textarea {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--crank-white);
+    padding-left: 30px;
+    padding-right: 30px;
+    outline: none;
+    font-size: 16px;
+    color: rgba(var(--crank-white-rgb), .80);
+    display: block;
+    font-weight: 400;
+    border-radius: 20px;
+    resize: none;
+    transition: all 0.3s ease;
+    height: 100px;
+    line-height: 1.6;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
 .contact-one__input-box .select-box .nice-select {
     background-color: transparent;
     border: 1px solid var(--crank-white);
@@ -458,7 +478,7 @@
 .contact-three {
     position: relative;
     display: block;
-    padding: 120px 0 0;
+    padding: 50px 0 50px;
     z-index: 1;
 }
 
@@ -583,6 +603,13 @@
     position: relative;
     display: block;
     padding: 120px 0 120px;
+    z-index: 1;
+}
+
+.contact-four-2{
+    position: relative;
+    display: block;
+    padding: 10px 0 40px;
     z-index: 1;
 }
 

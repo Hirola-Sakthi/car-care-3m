@@ -208,7 +208,7 @@
 .services-two {
     position: relative;
     display: block;
-    padding: 120px 0 90px;
+    padding: 100px 0 90px;
     z-index: 1;
 }
 
@@ -820,7 +820,7 @@
 .services-page {
     position: relative;
     display: block;
-    padding: 120px 0 0px;
+    padding: 120px 0 50px;
     z-index: 1;
 }
 

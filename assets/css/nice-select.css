@@ -162,6 +162,7 @@
     cursor: pointer;
     -webkit-transition: all 0.2s;
     transition: all 0.2s;
+    font-size: 14px;
 }
 
 .nice-select .option:hover,

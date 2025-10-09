@@ -90,7 +90,7 @@
 }
 
 .site-footer__newsletter-img img {
-  width: auto;
+  width: 450px;
 }
 
 .site-footer__newsletter-inner-content {
@@ -272,7 +272,7 @@
   position: relative;
   display: flex;
   align-items: center;
-  flex-wrap: wrap;
+  flex-wrap: nowrap;
   gap: 12px;
 }
 
