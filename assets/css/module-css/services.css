@@ -752,7 +752,7 @@
 .service-details__bottom-points {
     position: relative;
     display: block;
-    margin-bottom: 60px;
+    margin-bottom: 20px;
 }
 
 .service-details__bottom-points li {

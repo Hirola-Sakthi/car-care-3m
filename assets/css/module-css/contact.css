@@ -8,6 +8,14 @@
     z-index: 1;
 }
 
+.contact-one-services {
+    position: relative;
+    display: block;
+    padding: 50px 0 50px;
+    z-index: 1;
+}
+
+
 .contact-one__left {
     position: relative;
     display: block;
@@ -18,6 +26,16 @@
     display: block;
     background-color: var(--crank-black);
     padding: 78px 40px 40px;
+    border-radius: 20px;
+    overflow: hidden;
+    z-index: 1;
+}
+
+.contact-one__left-services-content {
+    position: relative;
+    display: block;
+    background-color: var(--crank-black);
+    padding: 20px 40px 20px;
     border-radius: 20px;
     overflow: hidden;
     z-index: 1;
@@ -83,9 +101,32 @@
     margin-bottom: 30px;
 }
 
+.contact-one__input-box-services {
+    position: relative;
+    display: block;
+    margin-bottom: 30px;
+}
+
 .contact-one__input-box input[type="text"],
 .contact-one__input-box input[type="email"] {
     height: 60px;
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--crank-white);
+    padding-left: 30px;
+    padding-right: 30px;
+    outline: none;
+    font-size: 16px;
+    color: rgba(var(--crank-white-rgb), .80);
+    display: block;
+    font-weight: 400;
+    border-radius: 20px;
+    line-height: 60px;
+}
+
+.contact-one__input-box-services input[type="text"],
+.contact-one__input-box-services input[type="email"] {
+    height: 50px;
     width: 100%;
     background-color: transparent;
     border: 1px solid var(--crank-white);
@@ -119,6 +160,25 @@
     padding-top: 20px;
     padding-bottom: 20px;
 }
+.contact-one__input-box-services textarea {
+    width: 100%;
+    background-color: transparent;
+    border: 1px solid var(--crank-white);
+    padding-left: 30px;
+    padding-right: 30px;
+    outline: none;
+    font-size: 16px;
+    color: rgba(var(--crank-white-rgb), .80);
+    display: block;
+    font-weight: 400;
+    border-radius: 20px;
+    resize: none;
+    transition: all 0.3s ease;
+    height: 80px;
+    line-height: 1.6;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
 
 .contact-one__input-box .select-box .nice-select {
     background-color: transparent;
@@ -135,6 +195,21 @@
     margin-bottom: 0px;
 }
 
+.contact-one__input-box-services .select-box .nice-select {
+    background-color: transparent;
+    border: 1px solid var(--crank-white);
+    border-radius: 20px;
+    color: rgba(var(--crank-white-rgb), .80);
+    font-size: 16px;
+    font-weight: 400;
+    height: 50px;
+    line-height: 60px;
+    padding-left: 30px;
+    padding-right: 30px;
+    width: 100%;
+    margin-bottom: 0px;
+}
+
 .contact-one__input-box .select-box .nice-select:after {
     position: absolute;
     top: 47%;
@@ -143,6 +218,13 @@
     border-right: 1px solid var(--crank-white);
 }
 
+.contact-one__input-box-services .select-box .nice-select:after {
+    position: absolute;
+    top: 47%;
+    right: 30px;
+    border-bottom: 1px solid var(--crank-white);
+    border-right: 1px solid var(--crank-white);
+}
 .contact-one__btn-box {
     position: relative;
     display: block;
@@ -606,7 +688,7 @@
     z-index: 1;
 }
 
-.contact-four-2{
+.contact-four-2 {
     position: relative;
     display: block;
     padding: 10px 0 40px;

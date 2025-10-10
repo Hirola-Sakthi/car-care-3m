@@ -1666,6 +1666,51 @@
       </div>
     </footer>
     <!--Site Footer End-->
+    <!-- Custom Popup Modal -->
+    <div class="popup-modal" id="customModal">
+      <div class="popup-content">
+        <div class="popup-header">
+          <span class="popup-close" onclick="closeModal()">&times;</span>
+        </div>
+        <div class="popup-title">
+          <h2>Enquire Now</h2>
+        </div>
+        <div class="popup-form">
+          <form id="contactFormModal" action="/3m-forms.php" method="POST">
+            <div class="form-group">
+              <input type="text" name="name" placeholder="Your name" required>
+            </div>
+            <div class="form-group">
+              <select name="service" class="form-control" required>
+                <option selected>Choose a Service</option>
+                <option>3M Paint Protection Film (PPF)</option>
+                <option>3M Sun Control Film</option>
+                <option>3M Graphene Coating</option>
+                <option>3M Ceramic Coating</option>
+                <option>3M Interior GermKleen Treatment</option>
+                <option>3M Anti-Corrosion Treatment</option>
+                <option>3M Car Wraps & Custom Styling</option>
+                <option>3M Nomad Floor Mats</option>
+              </select>
+            </div>
+            <div class="form-group">
+              <input type="email" name="email" placeholder="Your Email" required>
+            </div>
+            <div class="form-group">
+              <input type="tel" name="phone" placeholder="Phone" required>
+            </div>
+            <div class="form-group">
+              <textarea name="message" rows="3" placeholder="Message here..." required></textarea>
+            </div>
+            <div class="form-actions">
+              <button type="submit" name="submit" class="submit-btn w-button">Submit</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+
+
   </div>
   <!-- /.page-wrapper -->
 
@@ -1787,6 +1832,74 @@
               console.log('Success:', data);
               if (data.status === 'success') {
                 alert('Form submitted successfully!');
+                form.reset();
+              } else {
+                if (data.errors) {
+                  if (data.errors.phone) alert(data.errors.phone);
+                  if (data.errors.name) alert(data.errors.name);
+                } else {
+                  alert(data.message || 'An error occurred');
+                }
+              }
+            })
+            .catch(error => {
+              console.error('Error:', error);
+              alert('An error occurred during form submission.');
+            })
+            .finally(() => {
+              submitButton.textContent = 'Submit';
+              submitButton.disabled = false;
+            });
+        });
+      }
+    });
+  </script>
+  <script>
+    function openModal() {
+      document.getElementById("customModal").style.display = "block";
+    }
+    function closeModal() {
+      document.getElementById("customModal").style.display = "none";
+    }
+    setInterval(openModal, 30000);
+    window.onload = function () {
+      setTimeout(openModal, 30000);
+    }
+  </script>
+
+  <script>
+    document.addEventListener('DOMContentLoaded', () => {
+      const form = document.getElementById('contactFormModal');
+
+      // Handle form submission
+      if (form) {
+        form.addEventListener('submit', function (event) {
+          event.preventDefault();
+          if (form.dataset.submitted) return;
+          const submitButton = form.querySelector('button[type="submit"]');
+          submitButton.textContent = 'Submitting...';
+          submitButton.disabled = true;
+
+          const formData = new FormData(form);
+
+          fetch(form.action, {
+            method: 'POST',
+            body: formData
+          })
+            .then(response => response.text())
+            .then(text => {
+              console.log("Raw response:", text);
+              let data = {};
+              try {
+                data = JSON.parse(text);
+              } catch (e) {
+                alert("Invalid JSON response from server");
+                throw e;
+              }
+              console.log('Success:', data);
+              if (data.status === 'success') {
+                alert('Form submitted successfully!');
+                document.getElementById("customModal").style.display = "none";
                 form.reset();
               } else {
                 if (data.errors) {

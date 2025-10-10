@@ -106,7 +106,7 @@
 
 .testimonial-one__text {
     color: var(--crank-white);
-    font-size: 22px;
+    font-size: 17px;
     line-height: 32px;
 }
 
@@ -317,7 +317,7 @@
 
 .testimonial-two__text {
     color: var(--crank-white);
-    font-size: 26px;
+    font-size: 17px;
     font-weight: 500;
     line-height: 35px;
 }
