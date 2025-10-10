@@ -46,7 +46,7 @@
 }
 
 .sliding-text__list li:hover .icon {
-    background-color: rgba(var(--crank-white-rgb), 1);
+  background-color: rgba(var(--crank-black-rgb), 1);
 }
 
 .sliding-text__list li .icon span {
