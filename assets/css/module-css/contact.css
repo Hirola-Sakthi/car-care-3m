@@ -9,10 +9,9 @@
 }
 
 .contact-one-services {
-    position: relative;
-    display: block;
-    padding: 50px 0 50px;
-    z-index: 1;
+  position: static;
+  width: 100%;
+  z-index: 10;
 }
 
 

@@ -2369,7 +2369,8 @@ ul {
   box-sizing: border-box;
   color: black;
   font-weight: 400;
-  height: 65px;
+  height: 43px;
+  line-height: 1.5;
 }
 
 .form-control:focus {

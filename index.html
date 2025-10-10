@@ -1681,7 +1681,7 @@
               <input type="text" name="name" placeholder="Your name" required>
             </div>
             <div class="form-group">
-              <select name="service" class="form-control" required>
+              <select name="service select-model-input" class="form-control" required>
                 <option selected>Choose a Service</option>
                 <option>3M Paint Protection Film (PPF)</option>
                 <option>3M Sun Control Film</option>
@@ -1854,18 +1854,21 @@
       }
     });
   </script>
-  <script>
-    function openModal() {
-      document.getElementById("customModal").style.display = "block";
-    }
-    function closeModal() {
-      document.getElementById("customModal").style.display = "none";
-    }
-    setInterval(openModal, 30000);
-    window.onload = function () {
-      setTimeout(openModal, 30000);
-    }
-  </script>
+ <script>
+  let modalTimer;
+  function openModal() {
+    document.getElementById("customModal").style.display = "block";
+  }
+  function closeModal() {
+    document.getElementById("customModal").style.display = "none";
+    clearTimeout(modalTimer);
+    modalTimer = setTimeout(openModal, 30000);
+  }
+  window.onload = function () {
+    modalTimer = setTimeout(openModal, 30000);
+  };
+</script>
+
 
   <script>
     document.addEventListener('DOMContentLoaded', () => {
