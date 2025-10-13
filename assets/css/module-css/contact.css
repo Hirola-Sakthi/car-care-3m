@@ -20,7 +20,7 @@
 
   .sticky-active {
     position: fixed !important;
-    top: 100px; 
+    top: 93px; 
     width: 350px; 
     z-index: 100;
   }
@@ -34,7 +34,7 @@
     position: relative;
     display: block;
     background-color: var(--crank-black);
-    padding: 78px 40px 40px;
+    padding: 40px 40px 40px;
     border-radius: 20px;
     overflow: hidden;
     z-index: 1;
