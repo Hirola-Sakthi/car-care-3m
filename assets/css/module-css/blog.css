@@ -1293,6 +1293,7 @@
 .sidebar__post-image img {
     width: 100%;
     border-radius: 50%;
+    height: 80px;
 }
 
 .sidebar__post-content {
