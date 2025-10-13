@@ -560,6 +560,10 @@
     position: relative;
     display: block;
 }
+.service-details__right-sticky {
+  position: sticky;
+  top: 100px;
+}
 
 .service-details__service-list-box {
     position: relative;

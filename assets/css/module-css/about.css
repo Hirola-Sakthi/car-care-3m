@@ -796,7 +796,7 @@
 }
 
 .about-five__shope-box:hover .about-five__shope-icon {
-    background-color: rgba(var(--crank-white-rgb), 1);
+    background-color: rgba(var(--crank-black-rgb), 1);
 }
 
 .about-five__shope-icon span {

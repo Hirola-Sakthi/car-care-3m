@@ -8,12 +8,22 @@
     z-index: 1;
 }
 
-.contact-one-services {
+/* .contact-one-services {
   position: static;
   width: 100%;
   z-index: 10;
-}
+} */
 
+.contact-one-services {
+    position: relative;
+  }
+
+  .sticky-active {
+    position: fixed !important;
+    top: 100px; 
+    width: 350px; 
+    z-index: 100;
+  }
 
 .contact-one__left {
     position: relative;
@@ -38,6 +48,7 @@
     border-radius: 20px;
     overflow: hidden;
     z-index: 1;
+    margin-top: 13px;
 }
 
 .contact-one__shape-1 {

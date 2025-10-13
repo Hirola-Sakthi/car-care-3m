@@ -463,21 +463,18 @@
                                     </li>
                                 </ul>
                             </div>
-                            <!--Contact One Start -->
+
+                            <!--Contact Form Start -->
                             <section class="contact-one-services">
-                                <div class="col-xl-12  wow" data-wow-delay="100ms"
-                                    data-wow-duration="2500ms">
-                                    <div class="contact-one__left">
+                                <div class="col-xl-12 wow" data-wow-delay="100ms" data-wow-duration="2500ms">
+                                    <div id="stickyContact" class="contact-one__left">
                                         <div class="contact-one__left-services-content">
                                             <div class="contact-one__shape-1"></div>
                                             <div class="contact-one__shape-2"></div>
                                             <div class="contact-one__title-box">
                                                 <p>Enquire Now</p>
-                                                <!-- <h3>
-                    Expert Service for Your <br />
-                    best Vehicle
-                  </h3> -->
                                             </div>
+
                                             <form id="contactForm" class="contact-form-validated contact-one__form"
                                                 action="/3m-forms.php" method="POST" novalidate="novalidate">
                                                 <div class="row">
@@ -487,6 +484,7 @@
                                                                 required="" />
                                                         </div>
                                                     </div>
+
                                                     <div class="col-xl-12 col-lg-12">
                                                         <div class="contact-one__input-box-services">
                                                             <div class="select-box">
@@ -505,24 +503,28 @@
                                                             </div>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-xl-12 col-lg-12">
                                                         <div class="contact-one__input-box-services">
                                                             <input type="text" placeholder="Your Email" name="email"
                                                                 required="" />
                                                         </div>
                                                     </div>
+
                                                     <div class="col-xl-12 col-lg-12">
                                                         <div class="contact-one__input-box-services">
                                                             <input type="text" name="phone" placeholder="Phone"
                                                                 required="" />
                                                         </div>
                                                     </div>
+
                                                     <div class="col-xl-12 col-lg-12">
                                                         <div class="contact-one__input-box-services">
                                                             <textarea name="message"
                                                                 placeholder="Message here.."></textarea>
                                                         </div>
                                                     </div>
+
                                                     <div class="col-xl-12">
                                                         <div class="contact-one__btn-box">
                                                             <button type="submit" class="thm-btn contact-one__btn">
@@ -532,13 +534,14 @@
                                                     </div>
                                                 </div>
                                             </form>
+
                                             <div class="result"></div>
                                         </div>
                                     </div>
                                 </div>
                             </section>
-                            <!--Contact One End -->
-                            <div class="service-details__contact-box">
+                            <!--Contact Form End -->
+                            <!-- <div class="service-details__contact-box">
                                 <div class="service-details__contact-box-bg" style="
                       background-image: url(assets/images/backgrounds/service-details-contact-box-bg.jpg);
                     "></div>
@@ -556,7 +559,7 @@
                                 </p>
                                 <a href="tel:888178456765" class="service-details__contact-number">(+888) 178 456
                                     765</a>
-                            </div>
+                            </div> -->
                         </div>
                     </div>
                 </div>
@@ -949,6 +952,37 @@
                         });
                 });
             }
+        });
+    </script>
+    <script>
+        document.addEventListener("DOMContentLoaded", function () {
+            const stickyElement = document.getElementById("stickyContact");
+            const offsetTop = stickyElement.offsetTop;
+            const formWidth = stickyElement.offsetWidth;
+
+            console.log("offsetTop", offsetTop)
+            console.log("formWidth", formWidth)
+
+            window.addEventListener("scroll", function () {
+                if (window.innerWidth >= 1200) {
+                    if (window.scrollY > 1240) {
+                        stickyElement.classList.add("sticky-active");
+                        stickyElement.style.width = formWidth + "px";
+                    } else {
+                        stickyElement.classList.remove("sticky-active");
+                        stickyElement.style.width = "";
+                    }
+                } else {
+                    stickyElement.classList.remove("sticky-active");
+                    stickyElement.style.width = "";
+                }
+            });
+            window.addEventListener("resize", function () {
+                if (window.innerWidth < 1200) {
+                    stickyElement.classList.remove("sticky-active");
+                    stickyElement.style.width = "";
+                }
+            });
         });
     </script>
 </body>
