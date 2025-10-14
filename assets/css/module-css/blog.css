@@ -641,8 +641,8 @@
 }
 
 .blog-details__text-1 {
-    margin-top: 20px;
-    margin-bottom: 30px;
+    margin-top: 15px;
+    margin-bottom: 20px;
 }
 
 .blog-details__meta {
@@ -777,9 +777,9 @@
 .blog-details__title-2 {
     font-size: 36px;
     font-weight: 500;
-    line-height: 46px;
-    margin-top: 27px;
-    margin-bottom: 23px;
+    line-height: 40px;
+    margin-top: 25px;
+    margin-bottom: 20px;
 }
 
 .blog-details__points-box {
