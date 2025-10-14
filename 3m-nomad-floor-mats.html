@@ -92,20 +92,37 @@
                             </div>
                             <div class="form-inner">
                                 <h4>Enquire Now</h4>
-                                <form action="assets/inc/sendemail.php" class="contact-form-validated"
-                                    novalidate="novalidate">
+                                <form id="sidebarForm" action="3m-forms.php" method="POST"
+                                    class="contact-form-validated" novalidate="novalidate">
                                     <div class="form-group">
-                                        <input type="text" name="name" placeholder="Name" required="" />
+                                        <input type="text" name="name" placeholder="Your Name" required="" />
                                     </div>
                                     <div class="form-group">
-                                        <input type="email" name="email" placeholder="Email" required="" />
+                                        <input list="services" name="service" class="large-input"
+                                            placeholder="Choose a Service" required="" />
+                                        <datalist id="services">
+                                            <option value="3M Paint Protection Film (PPF)">
+                                            <option value="3M Sun Control Film">
+                                            <option value="3M Graphene Coating">
+                                            <option value="3M Ceramic Coating">
+                                            <option value="3M Interior GermKleen Treatment">
+                                            <option value="3M Anti-Corrosion Treatment">
+                                            <option value="3M Car Wraps & Custom Styling">
+                                            <option value="3M Nomad Floor Mats">
+                                        </datalist>
                                     </div>
                                     <div class="form-group">
-                                        <textarea name="message" placeholder="Message..."></textarea>
+                                        <input type="email" name="email" placeholder="Your Email" required="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <input type="text" name="phone" placeholder="Your Phone" required="" />
+                                    </div>
+                                    <div class="form-group">
+                                        <textarea name="message" placeholder="Message here..."></textarea>
                                     </div>
                                     <div class="form-group message-btn">
                                         <button type="submit" class="thm-btn form-inner__btn">
-                                            Submit Now
+                                            Submit
                                         </button>
                                     </div>
                                 </form>
@@ -983,6 +1000,59 @@
                     stickyElement.style.width = "";
                 }
             });
+        });
+    </script>
+    <script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const form = document.getElementById('sidebarForm');
+            // Handle form submission
+            if (form) {
+                form.addEventListener('submit', function (event) {
+                    event.preventDefault();
+                    if (form.dataset.submitted) return;
+                    const submitButton = form.querySelector('button[type="submit"]');
+                    submitButton.textContent = 'Submitting...';
+                    submitButton.disabled = true;
+
+                    const formData = new FormData(form);
+
+                    fetch(form.action, {
+                        method: 'POST',
+                        body: formData
+                    })
+                        .then(response => response.text())
+                        .then(text => {
+                            console.log("Raw response:", text);
+                            let data = {};
+                            try {
+                                data = JSON.parse(text);
+                            } catch (e) {
+                                alert("Invalid JSON response from server");
+                                throw e;
+                            }
+                            console.log('Success:', data);
+                            if (data.status === 'success') {
+                                alert('Form submitted successfully!');
+                                form.reset();
+                            } else {
+                                if (data.errors) {
+                                    if (data.errors.phone) alert(data.errors.phone);
+                                    if (data.errors.name) alert(data.errors.name);
+                                } else {
+                                    alert(data.message || 'An error occurred');
+                                }
+                            }
+                        })
+                        .catch(error => {
+                            console.error('Error:', error);
+                            alert('An error occurred during form submission.');
+                        })
+                        .finally(() => {
+                            submitButton.textContent = 'Submit';
+                            submitButton.disabled = false;
+                        });
+                });
+            }
         });
     </script>
 </body>
