@@ -314,13 +314,13 @@ table {
 }
 
 .logo img {
-  width: 120px;
+  width: 160px;
   height: auto;
   object-fit: contain;
 }
 
 .footer-widget__about-logo img{
-  width: 120px;
+  width: 160px;
   height: auto;
   object-fit: contain;
 }

@@ -225,7 +225,7 @@
 .footer-widget__contact-text {
   color: var(--crank-white);
   font-size: 18px;
-  font-weight: 600;
+  font-weight: 400;
   font-family: var(--crank-font-two);
 }
 
@@ -240,7 +240,8 @@
 .footer-widget__page-link {
   position: relative;
   display: block;
-  margin-left: 88px;
+  margin-left: 70px;
+  margin-top: 70px;
 }
 
 .footer-widget__title {
@@ -397,6 +398,7 @@
   position: relative;
   display: block;
   margin-left: 108px;
+  margin-top: 70px;
 }
 
 .site-footer__bottom {
@@ -859,6 +861,28 @@
 
 .site-footer-four .footer-widget__social-box {
   margin-left: 100px;
+}
+
+
+@media(min-width:1024px){
+  .margin-top-5{
+  margin-top: 40px;
+}
+}
+@media(width:768px){
+  .margin-top-5{
+  margin-top: 40px;
+}
+}
+@media(width:1024px){
+  .margin-top-5{
+  margin-top: 42px;
+}
+}
+@media (min-width: 992px) {
+  .padding-left-5 {
+    padding-left: 40px;
+  }
 }
 
 /*--------------------------------------------------------------
